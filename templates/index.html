@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression Model Predictions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Regression Model Predictions</h1>
+        
+        <form method="POST">
+            <label for="input_value">Enter a value for Polynomial Regression (X):</label>
+            <input type="text" id="input_value" name="input_value" required>
+            <br><br>
+            <label for="input_value_2">Enter a value for Linear Regression (X):</label>
+            <input type="text" id="input_value_2" name="input_value_2" required>
+            <br><br>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if input_value %}
+            <h2>Input Value for Polynomial Regression: {{ input_value }}</h2>
+            <h2>Polynomial Regression Prediction:</h2>
+            <p>{{ poly_prediction }}</p>
+        {% endif %}
+
+        {% if input_value_2 %}
+            <h2>Input Value for Linear Regression: {{ input_value_2 }}</h2>
+            <h2>Linear Regression Prediction:</h2>
+            <p>{{ lin_reg_prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
